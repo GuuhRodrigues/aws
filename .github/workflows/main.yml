@@ -84,7 +84,7 @@ jobs:
       with:
         task-definition: aws/programa1/programa1.json
         container-name: programa1
-        image: ${{ steps.build-image.outputs.image }}
+        image: .dkr.ecr.us-east-2.amazonaws.com/programa1:bc8f8d3ad22c1dd6287b10a961f840ae3a676ea9
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
