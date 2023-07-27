@@ -82,9 +82,9 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: aws/programa1/programa1.json
-        container-name: programa1
-        image: .dkr.ecr.us-east-2.amazonaws.com/programa1:bc8f8d3ad22c1dd6287b10a961f840ae3a676ea9
+        task-definition: ${{ env.ECS_TASK_DEFINITION }}
+        container-name: ${{ env.CONTAINER_NAME }}
+        image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
